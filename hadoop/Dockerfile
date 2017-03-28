@@ -20,6 +20,7 @@ ENV HADOOP_COMMON_HOME=$HADOOP_HOME
 ENV HADOOP_HDFS_HOME=$HADOOP_HOME
 ENV HADOOP_CONF_DIR=$HADOOP_INSTALL/etc/hadoop
 ENV YARN_HOME=$HADOOP_HOME
+ENV LD_LIBRARY_PATH=/usr/local/hadoop/lib/native
 ENV PATH=$PATH:$HADOOP_HOME/bin:$HADOOP_HOME/sbin
 RUN wget http://www-us.apache.org/dist/hadoop/common/hadoop-$HADOOP_VERSION/hadoop-$HADOOP_VERSION.tar.gz && \
     tar xfz hadoop-$HADOOP_VERSION.tar.gz && \
