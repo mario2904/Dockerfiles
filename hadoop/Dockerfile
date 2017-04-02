@@ -42,6 +42,6 @@ RUN ssh-keygen -t rsa -f ~/.ssh/id_rsa -P '' && \
     sed -i "s/#   StrictHostKeyChecking ask/    StrictHostKeyChecking no/" /etc/ssh/ssh_config
 
 # Add init scripts
-COPY scripts/* /usr/sbin/
-RUN chmod a+x /usr/sbin/init-hadoop-master.sh && \
-    chmod a+x /usr/sbin/init-hadoop-slave.sh
+COPY scripts/* /usr/bin/
+RUN chmod a+x /usr/bin/init-hadoop-master.sh && \
+    chmod a+x /usr/bin/init-hadoop-slave.sh
