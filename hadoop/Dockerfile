@@ -1,6 +1,7 @@
 FROM ubuntu:14.04
 
 WORKDIR /root
+ENV USER=root
 
 RUN apt-get update && apt-get install -y software-properties-common openssh-server wget
 
@@ -40,4 +41,7 @@ RUN ssh-keygen -t rsa -f ~/.ssh/id_rsa -P '' && \
     cat ~/.ssh/id_rsa.pub >> ~/.ssh/authorized_keys && \
     sed -i "s/#   StrictHostKeyChecking ask/    StrictHostKeyChecking no/" /etc/ssh/ssh_config
 
-ENV USER=root
+# Add init scripts
+COPY scripts/* /usr/sbin/
+RUN chmod a+x /usr/sbin/init-hadoop-master.sh && \
+    chmod a+x /usr/sbin/init-hadoop-slave.sh
