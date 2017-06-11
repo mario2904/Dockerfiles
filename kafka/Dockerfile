@@ -21,5 +21,3 @@ RUN wget http://www-us.apache.org/dist/kafka/$KAFKA_VERSION/kafka_$SCALA_VERSION
 
 COPY scripts/* /usr/bin/
 RUN chmod a+x /usr/bin/init-kafka.sh
-
-CMD ["init-kafka.sh"]
